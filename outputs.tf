@@ -89,7 +89,7 @@ output "api_identifiers" {
       is_system                                       = v.is_system
       proof_of_possession                             = v.proof_of_possession
       signing_alg                                     = v.signing_alg
-      signing_secret                                  = v.signing_secret
+      signing_secret                                  = sensitive(v.signing_secret)
       skip_consent_for_verifiable_first_party_clients = v.skip_consent_for_verifiable_first_party_clients
       token_encryption                                = v.token_encryption
       token_dialect                                   = v.token_dialect
