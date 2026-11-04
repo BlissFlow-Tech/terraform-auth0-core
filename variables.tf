@@ -197,7 +197,7 @@ variable "resource_servers" {
 }
 
 variable "client_grants" {
-  description = "Scope grants on an API audience, keyed by the client_applications key of the client that receives the grant"
+  description = "Scope grants on an API audience for the client in client_id, or, when client_id is null, for the client_applications client with the same key"
   type = map(object({
     client_id                   = optional(string)
     audience                    = optional(string)
