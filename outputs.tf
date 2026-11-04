@@ -106,7 +106,7 @@ output "api_scopes_list" {
     for k, v in auth0_resource_server_scopes.this : k => {
       id                         = v.id
       resource_server_identifier = v.resource_server_identifier
-      scops                      = v.scopes
+      scopes                     = v.scopes
     }
   }
 }
