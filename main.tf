@@ -1,7 +1,7 @@
 resource "auth0_client" "this" {
   for_each = var.client_applications != null ? var.client_applications : {}
 
-  name            = each.value.name == null ? each.key : each.key
+  name            = each.value.name == null ? each.key : each.value.name
   description     = each.value.description
   app_type        = each.value.app_type
   logo_uri        = each.value.logo_uri

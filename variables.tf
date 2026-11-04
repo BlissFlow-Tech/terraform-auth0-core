@@ -1,7 +1,7 @@
 variable "client_applications" {
-  description = "Client applications to create, keyed by an identifier that is also used as the application name"
+  description = "Client applications to create, keyed by an identifier that is the default application name"
   type = map(object({
-    name        = string
+    name        = optional(string)
     description = optional(string)
     app_type    = optional(string)
 
