@@ -71,7 +71,7 @@ module "auth0" {
 * Every map is keyed by an identifier that cross-references the others: `client_grants`, `enabled_clients` and `trigger_actions` refer to `client_applications` and `actions` keys, and organization `connections`/`members` refer to `client_application_connections` and `users` keys. An organization connection with `connection_id` set points at a connection managed elsewhere instead.
 * A client application is named after its map key. Its `name` attribute is required but not used yet.
 * A `client_grants` entry is keyed by the client application that receives the grant.
-* Users without a `password` get a generated one. The `users` output includes passwords and is not marked sensitive, so treat the state and outputs as secret. Client secrets are exposed through the sensitive `client_secrets` output.
+* Users without a `password` get a generated one. Passwords in the `users` output and `signing_secret` in the `api_identifiers` output are sensitive, so a root output that forwards either must set `sensitive = true`. State holds them in plain text. Client secrets are exposed through the sensitive `client_secrets` output.
 * Role membership is managed outside Terraform; the module only declares the roles.
 
 <!-- BEGIN_TF_DOCS -->
