@@ -271,7 +271,7 @@ resource "auth0_resource_server_scopes" "this" {
 
 resource "auth0_client_grant" "this" {
   for_each                    = var.client_grants != null ? var.client_grants : {}
-  client_id                   = auth0_client.this[each.key].id
+  client_id                   = each.value.client_id == null ? auth0_client.this[each.key].id : each.value.client_id
   audience                    = each.value.audience
   scopes                      = each.value.scopes
   allow_all_scopes            = each.value.allow_all_scopes
