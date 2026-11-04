@@ -7,7 +7,7 @@ Terraform module that manages the core objects of an Auth0 tenant: applications,
 ```hcl
 module "auth0" {
   source  = "blissflow-tech/core/auth0"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   client_applications = {
     web = {
